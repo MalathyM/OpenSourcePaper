@@ -4,3 +4,4 @@ Data Science project
 # 1 month data download
 # gunzip filename- .gz [to unzip]
 # cat filename(unzipped file) [use to open in the json file in the terminal]
+# Check the file location did cd in the console.
