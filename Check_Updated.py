@@ -1,7 +1,7 @@
 import json
 import os
 import glob
-
+import sys
 #creating the list of eventType to find out in the repo on the basis of for loop
 
 eventType=['CheckRunEvent',
@@ -51,8 +51,16 @@ eventType=['CheckRunEvent',
 
 #creating the list to append the final output in it
 jsonlist=[]
+if(len(sys.argv)<2):
+    print("Error: .py <parameter> 1. Mohit 2. Vivek's server")
 
-json_path="/Users/mohitdedhe/Desktop/MohitsDocs/Certification and Projects/VProject/Files"
+if(sys.argv[1]=='1'):
+    json_path="/Users/mohitdedhe/Desktop/MohitsDocs/Certification and Projects/VProject/Files"
+elif (sys.argv[1]=='2'):
+    json_path='/home/vivek/github-data'
+else:
+    print('Provide correct parameter')
+
 json_files=[json_file for json_file in os.listdir(json_path)if json_file.endswith('.json')]
 for every_file in json_files:
     print(json_path+'/'+every_file)
