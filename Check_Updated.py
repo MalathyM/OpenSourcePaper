@@ -2,6 +2,7 @@ import json
 import os
 import glob
 import sys
+import path
 #creating the list of eventType to find out in the repo on the basis of for loop
 
 eventType=['CheckRunEvent',
