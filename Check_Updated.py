@@ -49,7 +49,9 @@ eventType=['CheckRunEvent',
 'TeamEvent',
 'TeamAddEvent',
 'WatchEvent']
-
+#AI project for the data
+projectAI=['keras-team/keras','accord-net/framework','scikit-learn/scikit-learn','Microsoft/CNTK','Reference-LAPACK/lapack-release'
+           ,'BVLC/caffe','Theano/Theano','torch/torch7']
 
 #creating the list to append the final output in it
 jsonlist=[]
@@ -83,13 +85,14 @@ for every_file in json_files:
     for line in jsonrecords:
         jsonstrings=json.loads(line)
         #print(jsonstrings)
-        if(jsonstrings['repo']['name']=='contoso-x-production/azure-xplat-cli'):
-            for event in eventType:
-                if(jsonstrings['type']==event):
-                    jsonlist.append(jsonstrings['type'])
-                    result.update({every_file+str(uuid):jsonstrings['type']+', '+jsonstrings['actor']['avatar_url']+', '+jsonstrings['created_at']})
-                    uuid=uuid+1
-                elif(jsonstrings['type']!=event and len(eventType)==eventType.index(event)):
-                    jsonNlist.append(jsonstrings['type'])
-                    result1.update({every_file+str(uuid):jsonstrings['type']+', '+jsonstrings['actor']['avatar_url']+', '+jsonstrings['created_at']})
-                    uuid=uuid+1
+        for airproject in projectAI:
+            if(jsonstrings['repo']['name']==airproject):
+                for event in eventType:
+                    if(jsonstrings['type']==event):
+                        jsonlist.append(jsonstrings['type'])
+                        result.update({every_file+str(uuid):jsonstrings['repo']['name']+', '+jsonstrings['type']+', '+jsonstrings['actor']['avatar_url']+', '+jsonstrings['created_at']})
+                        uuid=uuid+1
+                    elif(jsonstrings['type']!=event and len(eventType)==eventType.index(event)):
+                        jsonNlist.append(jsonstrings['type'])
+                        result1.update({every_file+str(uuid):jsonstrings['repo']['name']+', '+jsonstrings['type']+', '+jsonstrings['actor']['avatar_url']+', '+jsonstrings['created_at']})
+                        uuid=uuid+1
