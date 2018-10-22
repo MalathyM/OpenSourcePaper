@@ -76,14 +76,13 @@ for every_file in json_files:
     for line in jsonrecords:
         jsonstrings=json.loads(line)
         #print(jsonstrings)
-        for event in eventType:
-            #print('%%%%%%%%%%%%%%%%checking for the event type%%%%%%%%%%%%%%%%%')
-            if(jsonstrings['type']==event):
-                #print('&&&&&&&&&&&&&&getting the eventType&&&&&&&&&&&&&&&&&')
-                jsonlist.append(jsonstrings['type'])
-                result.update({every_file+str(uuid):jsonstrings['type']+', '+jsonstrings['actor']['avatar_url']+', '+jsonstrings['created_at']})
-                uuid=uuid+1
-            elif(jsonstrings['type']!=event and len(eventType)==eventType.index(event)):
-                jsonNlist.append(jsonstrings['type'])
-                result1.update({every_file+str(uuid):jsonstrings['type']+', '+jsonstrings['actor']['avatar_url']+', '+jsonstrings['created_at']})
-                uuid=uuid+1
+        if(jsonstrings['repo']['name']=='contoso-x-production/azure-xplat-cli'):
+            for event in eventType:
+                if(jsonstrings['type']==event):
+                    jsonlist.append(jsonstrings['type'])
+                    result.update({every_file+str(uuid):jsonstrings['type']+', '+jsonstrings['actor']['avatar_url']+', '+jsonstrings['created_at']})
+                    uuid=uuid+1
+                elif(jsonstrings['type']!=event and len(eventType)==eventType.index(event)):
+                    jsonNlist.append(jsonstrings['type'])
+                    result1.update({every_file+str(uuid):jsonstrings['type']+', '+jsonstrings['actor']['avatar_url']+', '+jsonstrings['created_at']})
+                    uuid=uuid+1
