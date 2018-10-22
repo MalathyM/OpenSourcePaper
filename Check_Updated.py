@@ -58,12 +58,18 @@ result = dict()
 result1=dict()
 
 if(len(sys.argv)<2):
-    print("Error: .py <parameter> 1. Mohit 2. Vivek's server")
+    print("Error: .py <parameter> 1. Mohit 2. Vivek's server 3. ")
 
 if(sys.argv[1]=='1'):
     json_path="/Users/mohitdedhe/Desktop/MohitsDocs/Certification and Projects/VProject/Files"
 elif (sys.argv[1]=='2'):
     json_path='/home/vivek/github-data'
+elif (sys.argv[2]=='3'):
+    json_path=path.json
+elif (sys.argv[3]=='4'):
+    json_path=path.json
+elif (sys.argv[4]=='5'):
+    json_path=path.
 else:
     print('Provide correct parameter')
 
