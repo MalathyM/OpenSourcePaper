@@ -52,6 +52,11 @@ eventType=['CheckRunEvent',
 
 #creating the list to append the final output in it
 jsonlist=[]
+jsonNlist=[]
+jsonRlist=[]
+result = dict()
+result1=dict()
+
 if(len(sys.argv)<2):
     print("Error: .py <parameter> 1. Mohit 2. Vivek's server")
 
@@ -71,11 +76,14 @@ for every_file in json_files:
     for line in jsonrecords:
         jsonstrings=json.loads(line)
         #print(jsonstrings)
-        #print('**********inside the jsonstrings loop**********')
-        if(jsonstrings['repo']['name']=='contoso-x-production/azure-xplat-cli'):
-            #print('#########inside the repo name loop#############')
-            for event in eventType:
-                #print('%%%%%%%%%%%%%%%%checking for the event type%%%%%%%%%%%%%%%%%')
-                if(jsonstrings['type']==event):
-                    #print('&&&&&&&&&&&&&&getting the eventType&&&&&&&&&&&&&&&&&')
-                    jsonlist.append(jsonstrings['payload'])
+        for event in eventType:
+            #print('%%%%%%%%%%%%%%%%checking for the event type%%%%%%%%%%%%%%%%%')
+            if(jsonstrings['type']==event):
+                #print('&&&&&&&&&&&&&&getting the eventType&&&&&&&&&&&&&&&&&')
+                jsonlist.append(jsonstrings['type'])
+                result.update({every_file+str(uuid):jsonstrings['type']+', '+jsonstrings['actor']['avatar_url']+', '+jsonstrings['created_at']})
+                uuid=uuid+1
+            elif(jsonstrings['type']!=event and len(eventType)==eventType.index(event)):
+                jsonNlist.append(jsonstrings['type'])
+                result1.update({every_file+str(uuid):jsonstrings['type']+', '+jsonstrings['actor']['avatar_url']+', '+jsonstrings['created_at']})
+                uuid=uuid+1
