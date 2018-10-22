@@ -5,4 +5,3 @@ Data Science project
 # gunzip filename- .gz [to unzip]
 # cat filename(unzipped file) [use to open in the json file in the terminal]
 # Check the file location did cd in the console.
-# Changes are made in the check_updated.py for the dictionary use to get the eventype : 22 Aug Mohit 
