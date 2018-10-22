@@ -59,7 +59,7 @@ jsonNlist=[]
 jsonRlist=[]
 result = dict()
 result1=dict()
-
+uuid=0;
 if(len(sys.argv)<2):
     print("Error: .py <parameter> 1. Mohit 2. Vivek's server 3. Arundathi's server 4. Malathy's server 5. Nameetha's server")
 
