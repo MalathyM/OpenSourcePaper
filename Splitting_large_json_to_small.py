@@ -8,6 +8,7 @@ for file in json_files:
         print(file)
     print(len(o))
     chunkSize = 15000
+    #xrange/range is used as per the Python version used.
     for i in range(0, len(o), chunkSize):
         with open(path+"/"+ 'new_' + str(i//chunkSize) + '.json', 'w') as outfile:
             json.dump(o[i:i+chunkSize], outfile)
