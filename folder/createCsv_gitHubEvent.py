@@ -8,7 +8,7 @@ import sys
 # this is to get the path variable from the path.py file
 import path
 projectAI=['keras-team/keras','accord-net/framework','scikit-learn/scikit-learn','Microsoft/CNTK','Reference-LAPACK/lapack-release'
-        ,'BVLC/caffe','Theano/Theano','torch/torch7','tensorflow']
+        ,'BVLC/caffe','Theano/Theano','torch/torch7','tensorflow','google-research/bert','pytorch/pytorch']
 eventType=['CheckRunEvent',
 'CheckSuiteEvent',
 'CommitCommentEvent',
