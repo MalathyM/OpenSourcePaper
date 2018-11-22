@@ -4,6 +4,7 @@ import glob
 import csv
 import os
 import xlwt
+import sys
 # this is to get the path variable from the path.py file
 import path
 projectAI=['keras-team/keras','accord-net/framework','scikit-learn/scikit-learn','Microsoft/CNTK','Reference-LAPACK/lapack-release'
@@ -70,7 +71,7 @@ elif (sys.argv[4]=='5'):
 else:
     print('Provide correct parameter')
 
-json_path="/Users/mohitdedhe/Desktop/MohitsDocs/Certification and Projects/VProject/Files"
+#json_path="/Users/mohitdedhe/Desktop/MohitsDocs/Certification and Projects/VProject/Files"
 json_files=[json_file for json_file in os.listdir(json_path)if json_file.endswith('.json')]
 Workbook=xlwt.Workbook()
 i=0
@@ -83,7 +84,10 @@ worksheet.write(0,1,'Hour')
 worksheet.write(0,2,'RepName')
 worksheet.write(0,3,'Event Name')
 Workbook.save('Data2.xls')
+processed_files=0
 for every_file in json_files:
+    processed_files=+1
+    print(str(processed_files*100/len(json_files)))
     print(json_path+'/'+every_file)
     data=open(json_path+'/'+every_file)
     jsonrecords=data.readlines()
