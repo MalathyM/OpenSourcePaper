@@ -86,7 +86,7 @@ worksheet.write(0,3,'Event Name')
 Workbook.save('Data2.xls')
 processed_files=0
 for every_file in json_files:
-    processed_files=+1
+    processed_files+=1
     print(str(processed_files*100/len(json_files)))
     print(json_path+'/'+every_file)
     data=open(json_path+'/'+every_file)
