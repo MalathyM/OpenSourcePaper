@@ -91,7 +91,7 @@ for every_file in json_files:
                 for event in eventType:
                     if(jsonstrings['type']==event):
                         Datevalue=every_file[0:10]
-                        Hourvalue=every_file[11:13]
+                        Hourvalue=every_file[11:12]
                         RepNamevalue=jsonstrings['repo']['name']
                         EventNamevalue=jsonstrings['type']
                         #creates a new csv file and appends repository name, date, hour and event into csv
