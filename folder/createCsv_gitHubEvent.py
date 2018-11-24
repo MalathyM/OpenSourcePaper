@@ -77,7 +77,7 @@ json_files=[json_file for json_file in os.listdir(json_path)if json_file.endswit
 flag=0
 #looping over the json files
 for every_file in json_files:
-    global flag
+    #global flag
     data=open(json_path+'/'+every_file,encoding='utf-8')
     jsonrecords=data.readlines()
     data.close()
