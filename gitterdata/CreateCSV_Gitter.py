@@ -8,29 +8,28 @@ jsonNlist=[]
 #json_path="D:/GitHub/GitHub/Data/Gitter"
 json_path="D:/GitHub/GitHub/Data/Gitter_2"
 json_files=[json_file for json_file in os.listdir(json_path)if json_file.endswith('.json')]
-Workbook=xlwt.Workbook()
-i=0
-c=2
-col=0
-row=1
-worksheet=Workbook.add_sheet('sheet')
-worksheet.write(0,0,'Sent_Time')
-worksheet.write(0,1,'Display_Name')
-worksheet.write(0,2,'UserName')
-worksheet.write(0,3,'Text')
-worksheet.write(0,4,'ReadBy')
-worksheet.write(0,5,'Issues')
-Workbook.save('D:/Gitter_Data.xls')
-for file in json_files[1:2]:
+flag=0
+for file in json_files:
     with open(json_path+"/"+file,'r',encoding='utf-8') as infile:
         records = json.load(infile)
-        col=0
-        worksheet.write(row,col,records[i]['sent'])
-        worksheet.write(row,col+1,records[i]['fromUser']['displayName'])
-        worksheet.write(row,col+2,records[i]['fromUser']['username'])
-        worksheet.write(row,col+3,records[i]['text'])
-        worksheet.write(row,col+4,records[i]['readBy'])
-        worksheet.write(row,col+5,records[i]['issues'])
-        row=row+1
-        i=1
-Workbook.save('D:/Gitter_Data.xls')
+        print(records[1])
+        print(type(records))
+        for i in range(len(records)):
+            #used try and except block to catch exception - some files doesn't have the tags displayName available
+            try:
+                if records[i]['sent'] is not None and records[i]['fromUser']['displayName'] is not None:
+                    sent_value=records[i]['sent']
+                    disp=records[i]['fromUser']['displayName']
+                    usrname=records[i]['fromUser']['username']
+                    msg_value=records[i]['text']
+                    ReadBy_value=records[i]['readBy']
+                    Issues_value=records[i]['issues']
+                    with open('D:/GitHub/finalresult.csv','a',encoding='utf-8',newline='') as csvfile:
+                        fieldnames = ['Sent_Time','Display_Name','UserName','Messages','ReadBy','Issues']
+                        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+                        if flag==0:
+                            writer.writeheader()
+                        writer.writerow({'Sent_Time':sent_value, 'Display_Name':disp, 'UserName':usrname, 'Messages':msg_value, 'ReadBy':ReadBy_value, 'Issues':Issues_value})
+                        flag =+1
+            except:
+                pass
