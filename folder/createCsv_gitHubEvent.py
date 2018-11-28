@@ -93,7 +93,7 @@ for every_file in json_files:
                         Datevalue=every_file[0:10]
                         #Hourvalue=every_file[11:12] code changes for the getting the index of the '.' before the extension
                         index= every_file.index('.')
-                        Hourvalue=every_file[11,index]
+                        Hourvalue=every_file[11:index]
                         RepNamevalue=jsonstrings['repo']['name']
                         EventNamevalue=jsonstrings['type']
                         #creates a new csv file and appends repository name, date, hour and event into csv
