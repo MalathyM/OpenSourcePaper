@@ -24,7 +24,7 @@ for file in json_files:
                     msg_value=records[i]['text']
                     ReadBy_value=records[i]['readBy']
                     Issues_value=records[i]['issues']
-                    with open('D:/GitHub/finalresult.csv','a',encoding='utf-8',newline='') as csvfile:
+                    with open('D:/GitHub/data.csv','a',encoding='utf-8',newline='') as csvfile:
                         fieldnames = ['Sent_Time','Display_Name','UserName','Messages','ReadBy','Issues']
                         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
                         if flag==0:
