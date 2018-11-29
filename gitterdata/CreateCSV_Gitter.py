@@ -12,7 +12,6 @@ flag=0
 for file in json_files:
     with open(json_path+"/"+file,'r',encoding='utf-8') as infile:
         records = json.load(infile)
-        print(records[1])
         print(type(records))
         for i in range(len(records)):
             #used try and except block to catch exception - some files doesn't have the tags displayName available
