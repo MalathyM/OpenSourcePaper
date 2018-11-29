@@ -4,7 +4,6 @@ import glob
 import csv
 import os
 import xlwt
-jsonNlist=[]
 #json_path="D:/GitHub/GitHub/Data/Gitter"
 json_path="D:/GitHub/GitHub/Data/Gitter_2"
 json_files=[json_file for json_file in os.listdir(json_path)if json_file.endswith('.json')]
