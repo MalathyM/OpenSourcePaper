@@ -17,3 +17,5 @@ big_frame['year'] = pd.to_datetime(big_frame['sent_time']).dt.year
 big_frame['month'] = pd.to_datetime(big_frame['sent_time']).dt.month
 big_frame['day'] = pd.to_datetime(big_frame['sent_time']).dt.day
 big_frame['hour'] = pd.to_datetime(big_frame['sent_time']).dt.hour
+big_frame['msg_count']=1
+new = big_frame.groupby(by=['date','hour'])['msg_count'].sum().copy()
