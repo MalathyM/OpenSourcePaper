@@ -1,0 +1,23 @@
+#Plots the graph for different events in a file for the given month
+import io
+import pandas as pd
+import matplotlib.pyplot as plt
+import pandas as pd
+dataframe=pd.read_csv("Result.csv")
+ForkEvent=dataframe[ dataframe.EventName.isin(['ForkEvent'] )]
+columns=['Date','RepName']
+test = pd.DataFrame( columns=columns)
+test['Date']=ForkEvent['Date']
+test['RepName']=ForkEvent['RepName']
+forkPlot = (test.reset_index()
+          .groupby(['Date','RepName'], as_index=False)
+          .count()
+          
+          .rename(columns={'index':'count'})
+       )
+from matplotlib import pyplot as plt
+fig, ax = plt.subplots()
+
+# key gives the group name (i.e. RepName), data gives the actual values
+for key, data in forkPlot.groupby('RepName'):
+    data.plot(x='Date', y='count', ax=ax, label=key)
