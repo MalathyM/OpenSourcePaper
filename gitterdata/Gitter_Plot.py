@@ -25,11 +25,14 @@ big_frame['hour'] = pd.to_datetime(big_frame['sent_time']).dt.hour
 #aggregating the columns date and hour to find the message count per hour
 t = big_frame.groupby(by=['dt','hr'])['msg_count'].sum().copy()
 df = pd.DataFrame(t)
-#filling the hour gaps as few hours had 0 message count
+#filling the hour gaps as few hours had 0 as message count
 df.set_index(pd.to_datetime(df.index.get_level_values(0) ) +
              pd.to_timedelta(df.index.get_level_values(1), unit='H'),
              inplace=True)
 new_idx = pd.date_range(df.index.min(), df.index.max(), freq='H')
 df['msg_count']=df.reindex(new_idx, fill_value=0)
+#renaming index to column name
+df.reset_index(level=0, inplace=True)
+df = df.rename(columns={'index': 'dtime'})
 #plotting the data for year 2015
 df[df.index.year == 2015].plot()
