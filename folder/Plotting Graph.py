@@ -2,8 +2,9 @@
 import io
 import pandas as pd
 import matplotlib.pyplot as plt
+from matplotlib.pyplot import figure
 import pandas as pd
-dataframe=pd.read_csv("Result.csv")
+dataframe=pd.read_csv("/Users/mohitdedhe/Downloads/finalresult.csv")
 ForkEvent=dataframe[ dataframe.EventName.isin(['ForkEvent'] )]
 columns=['Date','RepName']
 test = pd.DataFrame( columns=columns)
@@ -17,7 +18,7 @@ forkPlot = (test.reset_index()
        )
 from matplotlib import pyplot as plt
 fig, ax = plt.subplots()
-
+fig.set_size_inches(22, 15, forward=True)
 # key gives the group name (i.e. RepName), data gives the actual values
 for key, data in forkPlot.groupby('RepName'):
     data.plot(x='Date', y='count', ax=ax, label=key)
