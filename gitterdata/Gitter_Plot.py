@@ -5,7 +5,7 @@ import pandas as pd
 import numpy as np
 import datetime as dt
 import matplotlib.pyplot as plt
-path = "D:\GitHub\GitHub\csv"
+path = "D:/GitHub/GitHub/csv"
 allFiles = glob.glob(os.path.join(path,"*.csv"))
 np_array_list = []
 for file_ in allFiles:
@@ -37,4 +37,10 @@ df = df.rename(columns={'index': 'dtime'})
 #plotting the data for year 2015
 df[df.index.year == 2015].plot()
 #write the plot to PDF file
-plt.savefig('D:/myfig.pdf')
+plt.savefig('D:/GitHub/GitHub/csv/plot_2015.pdf')
+#plotting the data for year 2016 and writing the plot to PDF file
+df[df.index.year == 2016].plot()
+plt.savefig('D:/GitHub/GitHub/csv/plot_2016.pdf')
+#plotting the data for year 2017 and writing the plot to PDF file
+df[df.index.year == 2017].plot()
+plt.savefig('D:/GitHub/GitHub/csv/plot_2017.pdf')
