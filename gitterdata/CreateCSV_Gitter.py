@@ -4,17 +4,18 @@ import glob
 import csv
 import xlwt
 #json_path="D:/GitHub/GitHub/Data/Gitter"
-json_path="D:/GitHub/GitHub/Data/Gitter_2"
+json_path="D:/GitHub/Chats"
 json_files=[json_file for json_file in os.listdir(json_path)if json_file.endswith('.json')]
 flag=0
 fileCount=0
+logf = open("D:/GitHub/Chats/csv/err.log", "a")
 for file in json_files:
     with open(json_path+"/"+file,'r',encoding='utf-8') as infile:
         records = json.load(infile)
         #print(type(records))
         #print(len(records))
         fileCount += 1
-        with open('C:/Users/karth/Desktop/New/csv/'+'data_'+str(fileCount)+'.csv','w',encoding='utf-8',newline='') as csvfile:
+        with open('D:/GitHub/Chats/csv/'+'data_'+str(fileCount)+'.csv','w',encoding='utf-8',newline='') as csvfile:
             fieldnames = ['Sent_Time','Display_Name','UserName','Messages','ReadBy','Issues']
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
@@ -30,4 +31,5 @@ for file in json_files:
                         Issues_value=records[i]['issues']
                         writer.writerow({'Sent_Time':sent_value, 'Display_Name':disp, 'UserName':usrname, 'Messages':msg_value, 'ReadBy':ReadBy_value, 'Issues':Issues_value})
                 except:
+                    logf.write(str(records[i]))
                     pass
