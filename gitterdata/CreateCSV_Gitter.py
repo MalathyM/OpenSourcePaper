@@ -2,7 +2,6 @@ import json
 import os
 import glob
 import csv
-import os
 import xlwt
 #json_path="D:/GitHub/GitHub/Data/Gitter"
 json_path="D:/GitHub/GitHub/Data/Gitter_2"
