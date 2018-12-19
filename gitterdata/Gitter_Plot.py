@@ -36,3 +36,5 @@ df.reset_index(level=0, inplace=True)
 df = df.rename(columns={'index': 'dtime'})
 #plotting the data for year 2015
 df[df.index.year == 2015].plot()
+#write the plot to PDF file
+plt.savefig('D:/myfig.pdf')
