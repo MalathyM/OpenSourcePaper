@@ -22,3 +22,4 @@ fig.set_size_inches(22, 15, forward=True)
 # key gives the group name (i.e. RepName), data gives the actual values
 for key, data in forkPlot.groupby('RepName'):
     data.plot(x='Date', y='count', ax=ax, label=key)
+plt.savefig("C://Users/Nameetha/Desktop/GithubResults.pdf")
