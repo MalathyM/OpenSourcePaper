@@ -10,6 +10,7 @@ columns=['Date','RepName']
 test = pd.DataFrame( columns=columns)
 test['Date']=ForkEvent['Date']
 test['RepName']=ForkEvent['RepName']
+test['Date']=pd.DatetimeIndex(test['Date']).normalize()
 forkPlot = (test.reset_index()
           .groupby(['Date','RepName'], as_index=False)
           .count()
