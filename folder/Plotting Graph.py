@@ -4,7 +4,24 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.pyplot import figure
 import pandas as pd
-dataframe=pd.read_csv("/Users/mohitdedhe/Downloads/finalresult.csv")
+jsonNlist=[]
+
+if(len(sys.argv)<2):
+    print("Error: .py <parameter> 1. Mohit 2. Vivek's server 3. Arundathi's server 4. Malathy's server 5. Nameetha's server")
+
+if(sys.argv[1]=='1'):
+    path=path.Json_Mohit
+elif (sys.argv[1]=='2'):
+    path=path.Json_Vivek
+elif (sys.argv[2]=='3'):
+    path=path.Json_Arundathi
+elif (sys.argv[3]=='4'):
+    path=path.Json_Malathy
+elif (sys.argv[4]=='5'):
+    path=path.Json_Nameetha
+else:
+    print('Provide correct parameter')
+dataframe=pd.read_csv(path)
 ForkEvent=dataframe[ dataframe.EventName.isin(['ForkEvent'] )]
 columns=['Date','RepName']
 test = pd.DataFrame( columns=columns)
