@@ -24,7 +24,7 @@ for each in urllist:
             newurllist.append(each.replace(x,"https://api.github.com"))
 print(newurllist)
 
-myToken = '97daa6ca22f09886525353c735226b877d21f72e'
+myToken = 'xxxxxxxxxxxxxxx'
 myUrl = urllist[2]
 head = {'Content-Type': 'application/json','Authorization': 'token {}'.format(myToken)}
 response = requests.get(myUrl, headers=head)
