@@ -1,0 +1,59 @@
+(base) C:\Users\vivek4\Downloads>pip install PyGithub
+Collecting PyGithub
+  Downloading https://files.pythonhosted.org/packages/08/ba/8b3563677fe7509f4b211b2f75d24d913f02c780a9c0936e2eceacc6e633/PyGithub-1.43.4.tar.gz (2.9MB)
+    100% |████████████████████████████████| 2.9MB 655kB/s
+Requirement already satisfied: requests>=2.14.0 in c:\programdata\anaconda3\lib\site-packages (from PyGithub) (2.18.4)
+Collecting pyjwt (from PyGithub)
+  Downloading https://files.pythonhosted.org/packages/87/8b/6a9f14b5f781697e51259d81657e6048fd31a113229cf346880bb7545565/PyJWT-1.7.1-py2.py3-none-any.whl
+Collecting Deprecated (from PyGithub)
+  Downloading https://files.pythonhosted.org/packages/a9/cb/c1a39ee51e3042df8b284e22c9c440ffad1c25f451bddd4bf9a8dc17cd75/Deprecated-1.2.4-py2.py3-none-any.whl
+Requirement already satisfied: chardet<3.1.0,>=3.0.2 in c:\programdata\anaconda3\lib\site-packages (from requests>=2.14.0->PyGithub) (3.0.4)
+Requirement already satisfied: idna<2.7,>=2.5 in c:\programdata\anaconda3\lib\site-packages (from requests>=2.14.0->PyGithub) (2.6)
+Requirement already satisfied: urllib3<1.23,>=1.21.1 in c:\programdata\anaconda3\lib\site-packages (from requests>=2.14.0->PyGithub) (1.22)
+Requirement already satisfied: certifi>=2017.4.17 in c:\programdata\anaconda3\lib\site-packages (from requests>=2.14.0->PyGithub) (2018.11.29)
+Requirement already satisfied: wrapt<2,>=1 in c:\programdata\anaconda3\lib\site-packages (from Deprecated->PyGithub) (1.10.11)
+Building wheels for collected packages: PyGithub
+  Running setup.py bdist_wheel for PyGithub ... done
+  Stored in directory: C:\Users\vivek4\AppData\Local\pip\Cache\wheels\26\bc\43\1be6fc4a597bbc2a12b3dac6ec54180ad9a3133d59ba1f45b5
+Successfully built PyGithub
+Installing collected packages: pyjwt, Deprecated, PyGithub
+Successfully installed Deprecated-1.2.4 PyGithub-1.43.4 pyjwt-1.7.1
+
+(base) C:\Users\vivek4\Downloads>python
+Python 3.6.4 |Anaconda, Inc.| (default, Jan 16 2018, 10:22:32) [MSC v.1900 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from github import Github
+>>> g = Github("user", "password")
+>>> g = Github("******", "********")
+>>> dir(g)
+['FIX_REPO_GET_GIT_REF', '_Github__get_FIX_REPO_GET_GIT_REF', '_Github__get_per_page', '_Github__requester', '_Github__set_FIX_REPO_GET_GIT_REF', '_Github__set_per_page', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'create_from_raw_data', 'dump', 'get_api_status', 'get_api_status_messages', 'get_emojis', 'get_gist', 'get_gists', 'get_gitignore_template', 'get_gitignore_templates', 'get_hook', 'get_hooks', 'get_installation', 'get_last_api_status_message', 'get_license', 'get_licenses', 'get_organization', 'get_organizations', 'get_project', 'get_rate_limit', 'get_repo', 'get_repos', 'get_user', 'get_users', 'load', 'oauth_scopes', 'per_page', 'rate_limiting', 'rate_limiting_resettime', 'render_markdown', 'search_code', 'search_commits', 'search_issues', 'search_repositories', 'search_topics', 'search_users']
+>>> repo = g.get_repo("PyGithub/PyGithub")
+>>>
+>>>
+>>>
+>>> dir(repo)
+['CHECK_AFTER_INIT_FLAG', '_CompletableGithubObject__complete', '_CompletableGithubObject__completed', '_GithubObject__makeSimpleAttribute', '_GithubObject__makeSimpleListAttribute', '_GithubObject__makeTransformedAttribute', '_Repository__create_pull', '_Repository__create_pull_1', '_Repository__create_pull_2', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_allow_merge_commit', '_allow_rebase_merge', '_allow_squash_merge', '_archive_url', '_archived', '_assignees_url', '_blobs_url', '_branches_url', '_clone_url', '_collaborators_url', '_comments_url', '_commits_url', '_compare_url', '_completeIfNeeded', '_completeIfNotSet', '_contents_url', '_contributors_url', '_created_at', '_default_branch', '_description', '_downloads_url', '_events_url', '_fork', '_forks', '_forks_count', '_forks_url', '_full_name', '_git_commits_url', '_git_refs_url', '_git_tags_url', '_git_url', '_has_downloads', '_has_issues', '_has_projects', '_has_wiki', '_headers', '_homepage', '_hooks_url', '_html_url', '_hub', '_id', '_identity', '_initAttributes', '_issue_comment_url', '_issue_events_url', '_issues_url', '_keys_url', '_labels_url', '_language', '_languages_url', '_makeBoolAttribute', '_makeClassAttribute', '_makeDatetimeAttribute', '_makeDictAttribute', '_makeDictOfStringsToClassesAttribute', '_makeIntAttribute', '_makeListOfClassesAttribute', '_makeListOfDictsAttribute', '_makeListOfIntsAttribute', '_makeListOfListOfStringsAttribute', '_makeListOfStringsAttribute', '_makeStringAttribute', '_makeTimestampAttribute', '_master_branch', '_merges_url', '_milestones_url', '_mirror_url', '_name', '_network_count', '_notifications_url', '_open_issues', '_open_issues_count', '_organization', '_owner', '_parent', '_parentUrl', '_permissions', '_private', '_pulls_url', '_pushed_at', '_rawData', '_requester', '_size', '_source', '_ssh_url', '_stargazers_count', '_stargazers_url', '_statuses_url', '_storeAndUseAttributes', '_subscribers_count', '_subscribers_url', '_subscription_url', '_svn_url', '_tags_url', '_teams_url', '_topics', '_trees_url', '_updated_at', '_url', '_useAttributes', '_watchers', '_watchers_count', 'add_to_collaborators', 'allow_merge_commit', 'allow_rebase_merge', 'allow_squash_merge', 'archive_url', 'archived', 'assignees_url', 'blobs_url', 'branches_url', 'clone_url', 'collaborators_url', 'comments_url', 'commits_url', 'compare', 'compare_url', 'contents_url', 'contributors_url', 'create_file', 'create_git_blob', 'create_git_commit', 'create_git_ref', 'create_git_release', 'create_git_tag', 'create_git_tag_and_release', 'create_git_tree', 'create_hook', 'create_issue', 'create_key', 'create_label', 'create_milestone', 'create_project', 'create_pull', 'create_source_import', 'created_at', 'default_branch', 'delete', 'delete_file', 'description', 'downloads_url', 'edit', 'etag', 'events_url', 'fork', 'forks', 'forks_count', 'forks_url', 'full_name', 'get__repr__', 'get_archive_link', 'get_assignees', 'get_branch', 'get_branches', 'get_clones_traffic', 'get_collaborator_permission', 'get_collaborators', 'get_comment', 'get_comments', 'get_commit', 'get_commits', 'get_contents', 'get_contributors', 'get_dir_contents', 'get_download', 'get_downloads', 'get_events', 'get_file_contents', 'get_forks', 'get_git_blob', 'get_git_commit', 'get_git_ref', 'get_git_refs', 'get_git_tag', 'get_git_tree', 'get_hook', 'get_hooks', 'get_issue', 'get_issues', 'get_issues_comments', 'get_issues_event', 'get_issues_events', 'get_key', 'get_keys', 'get_label', 'get_labels', 'get_languages', 'get_latest_release', 'get_license', 'get_milestone', 'get_milestones', 'get_network_events', 'get_projects', 'get_pull', 'get_pulls', 'get_pulls_comments', 'get_pulls_review_comments', 'get_readme', 'get_release', 'get_release_asset', 'get_releases', 'get_source_import', 'get_stargazers', 'get_stargazers_with_dates', 'get_stats_code_frequency', 'get_stats_commit_activity', 'get_stats_contributors', 'get_stats_participation', 'get_stats_punch_card', 'get_subscribers', 'get_tags', 'get_teams', 'get_top_paths', 'get_top_referrers', 'get_topics', 'get_views_traffic', 'get_watchers', 'git_commits_url', 'git_refs_url', 'git_tags_url', 'git_url', 'has_downloads', 'has_in_assignees', 'has_in_collaborators', 'has_issues', 'has_projects', 'has_wiki', 'homepage', 'hooks_url', 'html_url', 'id', 'issue_comment_url', 'issue_events_url', 'issues_url', 'keys_url', 'labels_url', 'language', 'languages_url', 'last_modified', 'legacy_search_issues', 'mark_notifications_as_read', 'master_branch', 'merge', 'merges_url', 'milestones_url', 'mirror_url', 'name', 'network_count', 'notifications_url', 'open_issues', 'open_issues_count', 'organization', 'owner', 'parent', 'permissions', 'private', 'pulls_url', 'pushed_at', 'raw_data', 'raw_headers', 'remove_from_collaborators', 'replace_topics', 'setCheckAfterInitFlag', 'size', 'source', 'ssh_url', 'stargazers_count', 'stargazers_url', 'statuses_url', 'subscribe_to_hub', 'subscribers_count', 'subscribers_url', 'subscription_url', 'svn_url', 'tags_url', 'teams_url', 'topics', 'trees_url', 'unsubscribe_from_hub', 'update', 'update_file', 'updated_at', 'url', 'watchers', 'watchers_count']
+>>> repo.forks_count()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'int' object is not callable
+>>> repo.forks_count
+773
+>>> dir(repo.forks_count)
+['__abs__', '__add__', '__and__', '__bool__', '__ceil__', '__class__', '__delattr__', '__dir__', '__divmod__', '__doc__', '__eq__', '__float__', '__floor__', '__floordiv__', '__format__', '__ge__', '__getattribute__', '__getnewargs__', '__gt__', '__hash__', '__index__', '__init__', '__init_subclass__', '__int__', '__invert__', '__le__', '__lshift__', '__lt__', '__mod__', '__mul__', '__ne__', '__neg__', '__new__', '__or__', '__pos__', '__pow__', '__radd__', '__rand__', '__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__', '__rlshift__', '__rmod__', '__rmul__', '__ror__', '__round__', '__rpow__', '__rrshift__', '__rshift__', '__rsub__', '__rtruediv__', '__rxor__', '__setattr__', '__sizeof__', '__str__', '__sub__', '__subclasshook__', '__truediv__', '__trunc__', '__xor__', 'bit_length', 'conjugate', 'denominator', 'from_bytes', 'imag', 'numerator', 'real', 'to_bytes']
+>>> repo.warchers
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'Repository' object has no attribute 'warchers'
+>>> repo.warchers()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'Repository' object has no attribute 'warchers'
+>>> repo.watchers()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: 'int' object is not callable
+>>> repo.watchers
+2273
+>>>
+
