@@ -47,8 +47,8 @@ for profile in all_profiles:
 
 			writer_team.writerow([user_name, user_desc, user_followers, user_tweets, user_url])
 
-			tweets = api.user_timeline(screen_name = profile, count = number_of_tweets, tweet_mode = 'extended')
-
+			#Module to get the tweets
+			"""tweets = api.user_timeline(screen_name = profile, count = number_of_tweets, tweet_mode = 'extended')
 
 			if (tweets):
 				print("Number of tweets extracted: {}.\n".format(len(tweets)))
@@ -64,7 +64,7 @@ for profile in all_profiles:
 
 				print(tweets[0].created_at)
 				print(tweets[0].favorite_count)
-				print(tweets[0].retweet_count)
+				print(tweets[0].retweet_count)"""
 		else:
 			break
 	except:
