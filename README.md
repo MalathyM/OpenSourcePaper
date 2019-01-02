@@ -2,6 +2,6 @@
 
 ## Team
 
-Vivek Singh
+Vivek Singh, Nameetha Ramachandra, Mohit Dedhe, Malathy Munusamy, Raghavkrishna S R
 
 
