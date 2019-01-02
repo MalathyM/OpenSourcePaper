@@ -1,4 +1,4 @@
-##Open-source software Development Analytics for Artificial Intelligence Projects
+## Open-source software Development Analytics for Artificial Intelligence Projects
 
-#Team
+# Team
 
