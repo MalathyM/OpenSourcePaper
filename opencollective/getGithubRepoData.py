@@ -10,7 +10,7 @@ import requests
 import json
 from github import Github
 import pandas as pd
-g = Github("a108dac5324ba6d2609061e7db6b70a811409888")
+g = Github("xxxxxxxxxxxxxxxx")
 dir(g)
 
 df = pd.read_csv("F:\Twitter+GitHub.csv")
