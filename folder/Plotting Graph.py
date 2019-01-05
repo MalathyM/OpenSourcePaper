@@ -65,15 +65,15 @@ for eventtype in unique_eventList:
         tmp['Date']= [datetime.datetime.strptime(x,'%m/%d/%Y') for x in data_groupe_by_date_for_one_repo.index.values] 
         #saves the number of events occured on that date
         tmp['number_of_events']= data_groupe_by_date_for_one_repo.values
-        start = datetime.datetime.strptime("01-01-2015", "%d-%m-%Y")
-        end = datetime.datetime.strptime("01-02-2015", "%d-%m-%Y")
+        start = datetime.datetime.strptime("01-01-2017", "%d-%m-%Y")
+        end = datetime.datetime.strptime("01-12-2017", "%d-%m-%Y")
         date_generated = [start + datetime.timedelta(days=x) for x in range(0, (end-start).days)]
         #setting the values to be displayed on x axis
-        ax.set_xlim(datetime.date(2015,1,1),datetime.date(2015,1,30))
+        ax.set_xlim(datetime.date(2017,1,1),datetime.date(2017,12,31))
         #plt.locator_params(numticks=5)
         xfmt = mdates.DateFormatter('%Y-%m-%d')
         ax.xaxis.set_major_formatter(xfmt)
-        ax.set_xticks([datetime.date(2015,1,1),datetime.date(2015,1,15),datetime.date(2015,1,30)])
+        ax.set_xticks([datetime.date(2017,1,1),datetime.date(2017,6,1),datetime.date(2015,12,31)])
         ax.plot(tmp.Date,tmp.number_of_events,markers_array[marker_counter], label=repo)
         #fig=plt.gcf()
         marker_counter+=1
