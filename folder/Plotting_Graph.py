@@ -3,6 +3,8 @@ import pandas as pd
 from matplotlib import pyplot as plt
 import datetime
 import matplotlib.dates as mdates
+import sys
+import path
 jsonNlist=[]
 #Select the path to read the csv file
 if(len(sys.argv)<2):
@@ -21,7 +23,7 @@ elif (sys.argv[4]=='5'):
 else:
     print('Provide correct parameter')
 #read the selected path 
-Githubdataframe1=pd.read_csv(path,header=0)
+Githubdataframe1=pd.read_csv('finalresult.csv',header=0)
 unique_event=Githubdataframe1['EventName'].unique().tolist()
 unique_eventList=Githubdataframe1.EventName.unique().tolist()
 for event in unique_eventList:
@@ -62,7 +64,7 @@ for eventtype in unique_eventList:
         data_groupe_by_date_for_one_repo=data_filtered_for_one_repository.groupby(['Date'])['value'].sum()
         tmp=pd.DataFrame()
         #strips the data into month,day and year format for every date in data_filtered_for_one_repository dataframe and saves it in tm dataframe
-        tmp['Date']= [datetime.datetime.strptime(x,'%m/%d/%Y') for x in data_groupe_by_date_for_one_repo.index.values] 
+        tmp['Date']= [datetime.datetime.strptime(x,'%Y-%m-%d') for x in data_groupe_by_date_for_one_repo.index.values] 
         #saves the number of events occured on that date
         tmp['number_of_events']= data_groupe_by_date_for_one_repo.values
         start = datetime.datetime.strptime("01-01-2017", "%d-%m-%Y")
