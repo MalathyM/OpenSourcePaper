@@ -5,6 +5,7 @@ import csv
 import os
 import xlwt
 import sys
+from tqdm import tqdm
 # this is to get the path variable from the path.py file
 import path
 projectAI=['keras-team/keras','accord-net/framework','scikit-learn/scikit-learn','Microsoft/CNTK','Reference-LAPACK/lapack-release'
@@ -76,7 +77,7 @@ json_files=[json_file for json_file in os.listdir(json_path)if json_file.endswit
 # flag counter used to keep track of number of times the header is printed in csv file
 flag=0
 #looping over the json files
-for every_file in json_files:
+for every_file in tqdm(json_files):
     #global flag
     data=open(json_path+'/'+every_file,encoding='utf-8')
     jsonrecords=data.readlines()
