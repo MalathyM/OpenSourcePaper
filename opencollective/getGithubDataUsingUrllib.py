@@ -33,4 +33,8 @@ response = urllib.request.urlopen(myUrl).read()
 
 data_m=json.loads(response.decode('utf-8'))
 
+response=urllib.request.urlopen('https://api.github.com/repos/nestjs/nest/contributors').read()
+data_m=json.loads(response.decode('utf-8'))
+
+
 
