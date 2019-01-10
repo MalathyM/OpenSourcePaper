@@ -84,31 +84,6 @@ newdf.to_csv("F:\Twitter+GitHub_New1.csv", index = False)
 
 
 
-#f = open('F:\\Twitter+GitHub.csv', 'r', encoding="utf8")
-#urllist = []
-#readfile = csv.reader(f)
-#for row in readfile:
-#    urllist.append(row[5])
-#f.close()
-#print(urllist)
-#
-#newurllist = []
-#xlist = ['https://github.com', 'http://github.com']
-#for each in urllist:
-#    for x in xlist:
-#        if x in each:
-#            newurllist.append(each.replace(x,"https://api.github.com"))
-#print(newurllist)
-#
-#myToken = 'xxxxxxxxxxxxx'
-#myUrl = urllist[2]
-#head = {'Content-Type': 'application/json','Authorization': 'token {}'.format(myToken)}
-#response = requests.get(myUrl, headers=head)
-#print(response.status_code)
-#json.loads(response.content.decode('utf-8'))
-#print(response.json())
-
-
 
 
     
