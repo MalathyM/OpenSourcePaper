@@ -31,17 +31,17 @@ df_day.set_index(pd.to_datetime(df_day.index.get_level_values(0) ) +
 new_idx = pd.date_range(df_day.index.min(), df_day.index.max(), freq='D')
 df_day['Number of messages']=df_day.reindex(new_idx, fill_value=0)
 #plot for year 2015 and saving it to PDF
-df_day[df_day.index.year == 2015].plot(marker='*')
+df_day[df_day.index.year == 2015].plot(marker='*',color="green")
 plt.legend().set_visible(False)
 plt.title("Number of messages on a daily basis")
 plt.savefig('D:/GitHub/Gitter/Plots/Gitter_daily_plot_2015.pdf')
 #plot for year 2016 and saving it to PDF
-df_day[df_day.index.year == 2016].plot(marker='*')
+df_day[df_day.index.year == 2016].plot(marker='*',color="green")
 plt.legend().set_visible(False)
 plt.title("Number of messages on a daily basis")
 plt.savefig('D:/GitHub/Gitter/Plots/Gitter_daily_plot_2016.pdf')
 #plot for year 2017 and saving it to PDF
-df_day[df_day.index.year == 2017].plot(marker='*')
+df_day[df_day.index.year == 2017].plot(marker='*',color="green")
 plt.legend().set_visible(False)
 plt.title("Number of messages on a daily basis")
 plt.savefig('D:/GitHub/Gitter/Plots/Gitter_daily_plot_2017.pdf')
