@@ -91,8 +91,8 @@ df["commits"] = commits
 df["branches"] = branches
 df["releases"] = releases
 df["contributors"] = contributors
-del issues[21]
 df["issues"] = issues
+del issues[21]
 df["pulls"] = pulls
 df["watches"] = watches
 df["stars"] = stars
