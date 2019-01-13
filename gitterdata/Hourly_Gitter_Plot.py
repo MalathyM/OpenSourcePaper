@@ -32,12 +32,23 @@ df.set_index(pd.to_datetime(df.index.get_level_values(0) ) +
 new_idx = pd.date_range(df.index.min(), df.index.max(), freq='H')
 df['msg_count']=df.reindex(new_idx, fill_value=0)
 #renaming index to column name
-df.reset_index(level=0, inplace=True)
-df = df.rename(columns={'index': 'dtime'})
-#plotting the data for year 2015
-df[df.index.year == 2015].plot()
-#write the plot to PDF file
-plt.savefig('D:/GitHub/GitHub/csv/plot_2015.pdf')
+#df.reset_index(level=0, inplace=True)
+#df = df.rename(columns={'index': 'dtime'})
+#plotting the data for year 2015 and writing it to PDF
+df[df.index.year == 2015].plot(marker='*')
+plt.legend().set_visible(False)
+plt.title("Number of messages on an hourly basis")
+plt.savefig('D:/GitHub/Gitter/Plots/Gitter_hourly_plot_2015.pdf')
+#plotting the data for year 2016 and writing it to PDF
+df[df.index.year == 2016].plot(marker='*')
+plt.legend().set_visible(False)
+plt.title("Number of messages on an hourly basis")
+plt.savefig('D:/GitHub/Gitter/Plots/Gitter_hourly_plot_2016.pdf')
+#plotting the data for year 2017 and writing it to PDF
+df[df.index.year == 2017].plot(marker='*')
+plt.legend().set_visible(False)
+plt.title("Number of messages on an hourly basis")
+plt.savefig('D:/GitHub/Gitter/Plots/Gitter_hourly_plot_2017.pdf')
 #plotting the data for year 2016 and writing the plot to PDF file
 df[df.index.year == 2016].plot()
 plt.savefig('D:/GitHub/GitHub/csv/plot_2016.pdf')
