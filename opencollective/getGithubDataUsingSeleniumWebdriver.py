@@ -12,7 +12,7 @@ import time
 chromedriver = "C:/Web Drivers"
 driver = webdriver.Chrome(executable_path = "chromedriver")
 
-df = pd.read_csv("F:\Twitter+GitHub.csv")
+df = pd.read_csv("C:/Users/arupatil/Documents/Data Analytics Projects/GithubTwitterAnalysis/Final Git+Twitter Output.csv")
 
 commits = []
 branches = []
@@ -92,7 +92,7 @@ df["branches"] = branches
 df["releases"] = releases
 df["contributors"] = contributors
 df["issues"] = issues
-del issues[21]
+del issues[19]
 df["pulls"] = pulls
 df["watches"] = watches
 df["stars"] = stars
@@ -100,5 +100,5 @@ df["forks"] = forks
 
 print(df.head(5))
 
-df.to_csv("F:\Twitter+GitHub_New2.csv", index = False)
+df.to_csv("C:/Users/arupatil/Documents/Data Analytics Projects/GithubTwitterAnalysis/Final Git+Twitter Output2.csv", index = False)
 
