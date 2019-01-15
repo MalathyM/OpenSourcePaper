@@ -14,8 +14,8 @@ for file_ in allFiles:
 comb_np_array = np.vstack(np_array_list)
 big_frame = pd.DataFrame(comb_np_array)
 #assigning default value for message count as message column has string value
-big_frame['msg_count']=1
 big_frame.columns = ["sent_time","dname","uname","msg","read_by","issues"]
+big_frame['Number of messages']=1
 #separating and populating the sent_time into different columns like date, year, month, day and hour
 big_frame['date'] = pd.to_datetime(big_frame['sent_time']).dt.date
 big_frame['year'] = pd.to_datetime(big_frame['sent_time']).dt.year
@@ -30,15 +30,15 @@ df_month = df_month.set_index('month')
 #plot for year 2015 and save it to PDF
 df_month.loc[df_month['year'] == 2015, 'Number of messages'].plot(marker='*',color="red")
 plt.legend().set_visible(False)
-plt.title("Number of messages on a montly basis")
+plt.title("Number of messages on a monthly basis")
 plt.savefig('D:/GitHub/Gitter/Plots/Gitter_monthly_plot_2015.pdf')
 #plot for year 2016 and save it to PDF
 df_month.loc[df_month['year'] == 2016, 'Number of messages'].plot(marker='*',color="red")
 plt.legend().set_visible(False)
-plt.title("Number of messages on a montly basis")
+plt.title("Number of messages on a monthly basis")
 plt.savefig('D:/GitHub/Gitter/Plots/Gitter_monthly_plot_2016.pdf')
 #plot for year 2015 and save it to PDF
 df_month.loc[df_month['year'] == 2017, 'Number of messages'].plot(marker='*',color="red")
 plt.legend().set_visible(False)
-plt.title("Number of messages on a montly basis")
+plt.title("Number of messages on a monthly basis")
 plt.savefig('D:/GitHub/Gitter/Plots/Gitter_monthly_plot_2017.pdf')
