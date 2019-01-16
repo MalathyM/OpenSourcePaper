@@ -20,6 +20,8 @@ big_frame['year'] = pd.to_datetime(big_frame['sent_time']).dt.year
 big_frame['month'] = pd.to_datetime(big_frame['sent_time']).dt.month
 big_frame['day'] = pd.to_datetime(big_frame['sent_time']).dt.day
 big_frame['hour'] = pd.to_datetime(big_frame['sent_time']).dt.hour
+#filter the data for year 2017
+uname = big_frame[big_frame['year']==2017]
 #create empty array
 uname_2017 = []
 uname_2017 = (year_2017['uname'].unique())
