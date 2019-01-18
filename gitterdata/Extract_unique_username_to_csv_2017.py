@@ -21,7 +21,7 @@ big_frame['month'] = pd.to_datetime(big_frame['sent_time']).dt.month
 big_frame['day'] = pd.to_datetime(big_frame['sent_time']).dt.day
 big_frame['hour'] = pd.to_datetime(big_frame['sent_time']).dt.hour
 #filter the data for year 2017
-uname = big_frame[big_frame['year']==2017]
+year_2017 = big_frame[big_frame['year'] == 2017]
 #create empty array
 uname_2017 = []
 uname_2017 = (year_2017['uname'].unique())
@@ -30,3 +30,7 @@ df=pd.DataFrame(uname_2017)
 df.columns=['user_name']
 #write the data frame to csv
 df.to_csv('D:/GitHub/GitHub/uname/user_name_2017.csv',encoding='utf-8', index=False)
+#find the total number of unique user names
+df.count()
+#find the total number of messages in the year 2017
+year_2017.groupby(by=['year'])['msg_count'].sum()
