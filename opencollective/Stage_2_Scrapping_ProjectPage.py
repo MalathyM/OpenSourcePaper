@@ -1,12 +1,17 @@
+##############################################
 #UTF-8 Encoded
-#Created Date - Jan 17th, 2019
-# Author - Raghav Ramky
+#Created Date - Jan 18th, 2019
+#Author - Raghav Ramky
 #Stage_2: Scrapping Details from project Pages
+##############################################
 
 from selenium import webdriver
+import datetime
 import random
 import time
 import csv
+
+start = time.time()
 
 #Loading Headless version of Firefox Driver in Selenium
 from selenium.webdriver.firefox.options import Options
@@ -121,3 +126,12 @@ except:
 	pass
 #Close the Headless version of Firefox
 driver.quit()
+
+end = time.time()
+program = (end - start)
+start_time = datetime.datetime.fromtimestamp(start).strftime('%Y-%m-%d %H:%M:%S')
+end_time = datetime.datetime.fromtimestamp(end).strftime('%Y-%m-%d %H:%M:%S')
+
+csv_stage_2 = open('Stage_2_LogFile.csv', 'a')
+writer_stage_2 = csv.writer(csv_stage_2)
+writer_stage_2.writerow([start_time, end_time, program])
