@@ -1,12 +1,17 @@
+######################################################
 #UTF-8 Encoded
-#Created Date - Jan 17th, 2019
-# Author - Raghav Ramky
+#Created Date - Jan 18th, 2019
+#Author - Raghav Ramky
 #Stage_1 : Crawling Homepage for Project Names and URL
+######################################################
 
 from selenium import webdriver
+import datetime
 import random
 import time
 import csv
+
+start = time.time()
 
 #Writing to CSV File
 csv_stage_1 = open('Stage_1.csv', 'w')
@@ -55,3 +60,7 @@ for z in range (0,757):
 	writer_stage_1.writerow([all_names[z], all_links[z]])
 
 driver.quit()
+
+csv_stage_1 = open('Stage_1_LogFile.csv', 'a')
+writer_stage_1 = csv.writer(csv_stage_1)
+writer_stage_1.writerow([start_time, end_time, program])
