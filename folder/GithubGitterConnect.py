@@ -1,4 +1,4 @@
-#creating the dictionary to store the unique ids and there eventcounts
+#creating the dictionary to store the unique ids and there events and there counts
 arr=dict()
 #this will have the event names and its counts for the perticular userid
 arr_evnt_count=dict{}
