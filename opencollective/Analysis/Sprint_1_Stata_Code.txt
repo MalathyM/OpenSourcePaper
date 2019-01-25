@@ -1,0 +1,91 @@
+import delimited "C:\Users\ragha\Downloads\Final_Output (1).csv"
+summarize annual_budget  current_budget no_of_organizations no_of_people_supporting nooffollowers nooftweets noofcommits noofbranches noofreleases noofcontributors noofissues noofpulls noofwatches noofstars noofforks
+correlate annual_budget current_budget no_of_organizations no_of_people_supporting nooffollowers nooftweets noofcommits noofbranches noofreleases noofcontributors noofissues noofpulls noofwatches noofstars noofforks
+reg current_budget annual_budget no_of_organizations no_of_people_supporting nooffollowers nooftweets noofcommits noofbranches noofreleases noofcontributors noofissues noofpulls noofwatches noofstars noofforks
+gen ln_curr_budget = ln(current_budget)
+reg ln_curr_budget annual_budget no_of_organizations no_of_people_supporting nooffollowers nooftweets noofcommits noofbranches noofreleases noofcontributors noofissues noofpulls noofwatches noofstars noofforks
+gen ln_ann_budget = ln(annual_budget)
+reg ln_curr_budget ln_ann_budget no_of_organizations no_of_people_supporting nooffollowers nooftweets noofcommits noofbranches noofreleases noofcontributors noofissues noofpulls noofwatches noofstars noofforks
+save "C:\Users\ragha\Desktop\Updated File.dta"
+gen per_ct = current_budget/ annual_budget
+reg per_ct no_of_organizations no_of_people_supporting nooffollowers nooftweets noofcommits noofbranches noofreleases noofcontributors noofissues noofpulls noofwatches noofstars noofforks
+hist annual_budget, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_Annual _Budget.gph"
+hist ln_ann_budget, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_Log(Annual _Budget).gph"
+hist current_budget, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_Current_Budget.gph"
+hist ln_ann_budget, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_Log(Current_Budget).gph"
+gen ln_os = ln(no_of_organizations)
+drop ln_NOF
+drop ln_NOF
+gen ln_os = ln(no_of_organizations)
+hist no_of_organizations, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_OS.gph"
+HIST ln_os, freq
+hist ln_os
+hist ln_os, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_Log(OS).gph"
+hist no_of_people_supporting, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_PS.gph"
+gen ln_ps = ln(no_of_people_supporting)
+hist ln_ps, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_Log(PS).gph"
+hsit nooffollowers, freq
+hist nooffollowers, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_NOF_T.gph"
+gen ln_nof_t = ln(nooffollowers)
+hist ln_nof_t, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_Log(NOF_T).gph"
+hist nooftweets, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_NOT_T.gph"
+gen ln_not_t = ln(nooftweets)
+hist ln_not_t, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_Log(NOT_T).gph"
+hist noofcommits, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_NOC_G.gph"
+gen ln_noc_g = ln(noofcommits)
+hist ln_noc_g, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_Log(NOC_G).gph"
+hist noofbranches, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_NOB_G.gph"
+gen ln_nob_g = ln(noofbranches)
+hist ln_nob_g, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_Log(NOB_G).gph"
+hist noofreleases-noofforks, freq
+hist noofreleases, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_NOR_G.gph"
+gen ln_nor_g = ln(noofreleases)
+hist ln_nor_g, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_Log(NOR_G).gph"
+hist noofcontributors, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_NOCONTRI_G.gph"
+gen ln_nocontri = ln(noofcontributors)
+hist ln_nocontri, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_Log(NOCONTRI_G).gph"
+hist noofissues, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_Log(NOI_G).gph"
+gen ln_noi = ln(noofissues)
+hist ln_noi, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_Log(NOI_G)_.gph"
+hist noofpulls, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_NOP_G.gph"
+gen ln_nop = ln(noofpulls)
+hist ln_nop, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_Log(NOP_G).gph"
+hist noofwatches, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_NOW_G.gph"
+gen ln_now = ln(noofwatches)
+hist ln_now, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_Log(NOW_G).gph"
+hist noofstars, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_NOS_G.gph"
+gen ln_nos = ln(noofstars)
+hist ln_nos, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_Log(NOS_G).gph"
+hist noofforks, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_NOFRK_G.gph"
+gen ln_nofrk = ln(noofforks)
+hist ln_nofrk, freq
+graph save Graph "C:\Users\ragha\Desktop\Hist_Log(NOFRK_G).gph"
