@@ -28,6 +28,9 @@ uname_2017 = (year_2017['uname'].unique())
 #convert array to df for easy writing to csv
 df=pd.DataFrame(uname_2017)
 df.columns=['user_name']
+#taking sample for 5000 unique users
+df_uname_500=df.sample(n=5000)
+df_uname_500.to_csv('D:/GitHub/Gitter/user_name_2017_sampled_5000.csv',encoding='utf-8', index=False)
 #write the data frame to csv
 df.to_csv('D:/GitHub/GitHub/uname/user_name_2017.csv',encoding='utf-8', index=False)
 #find the total number of unique user names
