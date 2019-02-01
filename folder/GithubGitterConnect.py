@@ -86,48 +86,47 @@ arr_evnt_count=dict()
 i=0
 countexc=0
 #getting the files list from the given path
-try:
-    
-    json_files=[json_file for json_file in os.listdir(json_path)if json_file.endswith('.json')]
-    #iterating the files using For loop
-    for every_file in tqdm(json_files):
-        data=open(json_path+'/'+every_file)
-        monthValue=every_file[5:7]
-        #reading the data and store it to the jsonrecord for the signle file
-        jsonrecords=data.readlines()
-        data.close()
-        #iteration over the data line by line and loading to the json form
-        for line in jsonrecords:
-            jsonstrings=js.loads(line)
-            #use unique Gitter UserID and now comparing the Gitter with Github login.
-            for userid in arrdataUserID:
-                if(jsonstrings['actor']['login']==userid):
-                    #creating the dummy nodes for all the events and checking whether the userID is alread there before creating it
-                    arr=createDummyNode(userid,arr,arr_evnt_count,eventType)
-                    #first iteration of loop and adding first element directly to dictionary
-                    eventName=jsonstrings['type']
-                    if(i==0):
-                        arr_evnt_count.update({eventName:1})
-                        arr.update({userid+"_"+monthValue:arr_evnt_count})
-                        i=1
-                    else:
-                        #from the next iteration checking whether the userid already present or not
-                        for key in list(arr):
-                            if(key==userid):
-                                k=arr.get(key)
-                                val=k.get(eventName)
-                                val=val+1;
-                                k.update({eventName:val})
-                                arr.update({userid+"_"+monthValue:k})
-                                val=0
-                            else:
-                                arr_evnt_count.update({eventName:1})
-                                arr.update({userid+"_"+monthValue:arr_evnt_count})
-    print('count of exception',countexc)  
-except e:
-    countexc=counttexc+1
-    print("done",e)
-    
+json_files=[json_file for json_file in os.listdir(json_path)if json_file.endswith('.json')]
+#iterating the files using For loop
+for every_file in tqdm(json_files):
+    data=open(json_path+'/'+every_file)
+    monthValue=every_file[5:7]
+    #reading the data and store it to the jsonrecord for the signle file
+    jsonrecords=data.readlines()
+    data.close()
+    #iteration over the data line by line and loading to the json form
+    for line in jsonrecords:
+        jsonstrings=js.loads(line)
+        #use unique Gitter UserID and now comparing the Gitter with Github login.
+        #for userid in arrdataUserID:
+        try:
+            if(jsonstrings['actor']['login'] in arrdataUserID):
+                #creating the dummy nodes for all the events and checking whether the userID is alread there before creating it
+                arr=createDummyNode(userid,arr,arr_evnt_count,eventType)
+                #first iteration of loop and adding first element directly to dictionary
+                eventName=jsonstrings['type']
+                if(i==0):
+                    arr_evnt_count.update({eventName:1})
+                    arr.update({userid+"_"+monthValue:arr_evnt_count})
+                    i=1
+                else:
+                    #from the next iteration checking whether the userid already present or not
+                    for key in list(arr):
+                        if(key==userid):
+                            k=arr.get(key)
+                            val=k.get(eventName)
+                            val=val+1;
+                            k.update({eventName:val})
+                            arr.update({userid+"_"+monthValue:k})
+                            val=0
+                        else:
+                            arr_evnt_count.update({eventName:1})
+                            arr.update({userid+"_"+monthValue:arr_evnt_count})
+            #print('count of exception',countexc) 
+        except e:
+            countexc=counttexc+1
+            #print("done",e)
+print("Number of exceptions="+str(countexc))
 header=['UserID', 'Month','CheckRunEvent',
 'CheckSuiteEvent',
 'CommitCommentEvent',
