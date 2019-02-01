@@ -84,6 +84,7 @@ arr_evnt_count=dict()
 #mdeh  Jan         1        2        3       5        7         0 
 #i is used for the first iteration of the dictionary insert key and value pair
 i=0
+countexc=0
 #getting the files list from the given path
 try:
     
@@ -122,7 +123,9 @@ try:
                             else:
                                 arr_evnt_count.update({eventName:1})
                                 arr.update({userid+"_"+monthValue:arr_evnt_count})
+    print('count of exception',countexc)  
 except e:
+    countexc=counttexc+1
     print("done",e)
     
 header=['UserID', 'Month','CheckRunEvent',
