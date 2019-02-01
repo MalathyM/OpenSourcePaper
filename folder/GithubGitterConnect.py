@@ -5,10 +5,10 @@ import csv
 import xlwt
 import sys
 from tqdm import tqdm
-datagitteruser = pd.read_csv('/Volumes/BootCamp/MohitsDocs/Certification and Projects/VProject/Files/user_name_2017_sampled_5000.csv')
+datagitteruser = pd.read_csv('user_name_2017_sampled_5000.csv')
 datagitteruser.head()
 arrdataUserID = datagitteruser['user_name']
-json_path='/Volumes/BootCamp/MohitsDocs/Certification and Projects/VProject/Files/'
+json_path='/home/vivek/github-data_2017/'
 eventType=['CheckRunEvent',
 'CheckSuiteEvent',
 'CommitCommentEvent',
@@ -175,7 +175,7 @@ header=['UserID', 'Month','CheckRunEvent',
 
 
 #creating csv using the dictionary values 
-with open('/Volumes/BootCamp/MohitsDocs/Certification and Projects/VProject/githubGittercollection.csv','w',newline='') as csvfile:
+with open('githubGittercollection.csv','w',newline='') as csvfile:
     fieldnames = ['UserID', 'Month','CheckRunEvent',
 'CheckSuiteEvent',
 'CommitCommentEvent',
