@@ -122,8 +122,8 @@ try:
                             else:
                                 arr_evnt_count.update({eventName:1})
                                 arr.update({userid+"_"+monthValue:arr_evnt_count})
-except:
-    print("done")
+except e:
+    print("done",e)
     
 header=['UserID', 'Month','CheckRunEvent',
 'CheckSuiteEvent',
