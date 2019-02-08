@@ -124,7 +124,7 @@ for every_file in tqdm(json_files):
                             arr.update({userid+"_"+monthValue:arr_evnt_count})
             #print('count of exception',countexc) 
         except:
-            countexc=counttexc+1
+            countexc=countexc+1
             #print("done",e)
 print("Number of exceptions="+str(countexc))
 header=['UserID', 'Month','CheckRunEvent',
