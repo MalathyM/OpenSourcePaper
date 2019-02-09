@@ -88,7 +88,7 @@ countexc=0
 #getting the files list from the given path
 json_files=[json_file for json_file in os.listdir(json_path)if json_file.endswith('.json')]
 #iterating the files using For loop
-for every_file in tqdm(json_files):
+for every_file in json_files:
     data=open(json_path+'/'+every_file)
     monthValue=every_file[5:7]
     #reading the data and store it to the jsonrecord for the signle file
@@ -100,7 +100,7 @@ for every_file in tqdm(json_files):
         #use unique Gitter UserID and now comparing the Gitter with Github login.
         #for userid in arrdataUserID:
         try:
-            if(jsonstrings['actor']['login'] in arrdataUserID):
+            if(jsonstrings['actor']['login'] in list(arrdataUserID)):
                 #creating the dummy nodes for all the events and checking whether the userID is alread there before creating it
                 arr=createDummyNode(userid,arr,arr_evnt_count,eventType)
                 #first iteration of loop and adding first element directly to dictionary
