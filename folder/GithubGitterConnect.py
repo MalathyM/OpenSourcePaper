@@ -122,8 +122,6 @@ for every_file in tqdm(json_files):
                         else:
                             arr_evnt_count.update({eventName:1})
                             arr.update({userid+"_"+monthValue:arr_evnt_count})
-            else:
-                print(jsonstrings['actor']['login'])
             
         except:
             countexc=countexc+1
@@ -220,6 +218,7 @@ with open('githubGittercollection.csv','w',newline='') as csvfile:
 'TeamEvent',
 'TeamAddEvent',
 'WatchEvent']
+    print(len(arr)
     writer = csv.writer(csvfile, dialect='excel')
     #writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writerow(header)
