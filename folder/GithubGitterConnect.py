@@ -218,7 +218,7 @@ with open('githubGittercollection.csv','w',newline='') as csvfile:
 'TeamEvent',
 'TeamAddEvent',
 'WatchEvent']
-    print(len(arr)
+    print(len(arr))
     writer_m = csv.writer(csvfile, dialect='excel')
     #writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer_m.writerow(header)
