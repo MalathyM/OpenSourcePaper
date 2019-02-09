@@ -219,9 +219,9 @@ with open('githubGittercollection.csv','w',newline='') as csvfile:
 'TeamAddEvent',
 'WatchEvent']
     print(len(arr)
-    writer = csv.writer(csvfile, dialect='excel')
+    writer_m = csv.writer(csvfile, dialect='excel')
     #writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-    writer.writerow(header)
+    writer_m.writerow(header)
     for key in list(arr):
         uid_mon = key
         um=key.split('_')
@@ -235,4 +235,4 @@ with open('githubGittercollection.csv','w',newline='') as csvfile:
             keyevname = keyevent
             val=innerdict.get(keyevname)
             l.append(val)
-        writer.writerow(l)
+        writer_m.writerow(l)
