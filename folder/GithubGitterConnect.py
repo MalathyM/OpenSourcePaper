@@ -122,7 +122,9 @@ for every_file in tqdm(json_files):
                         else:
                             arr_evnt_count.update({eventName:1})
                             arr.update({userid+"_"+monthValue:arr_evnt_count})
-            #print('count of exception',countexc) 
+            else:
+                print(jsonstrings['actor']['login'])
+            
         except:
             countexc=countexc+1
             #print("done",e)
