@@ -23,7 +23,7 @@ big_frame['month'] = pd.to_datetime(big_frame['sent_time']).dt.month
 big_frame['day'] = pd.to_datetime(big_frame['sent_time']).dt.day
 big_frame['hour'] = pd.to_datetime(big_frame['sent_time']).dt.hour
 #aggregating the columns date and hour to find the message count per hour
-t = big_frame.groupby(by=['dt','hr'])['msg_count'].sum().copy()
+t = big_frame.groupby(by=['date','hour'])['msg_count'].sum().copy()
 df = pd.DataFrame(t)
 #filling the hour gaps as few hours had 0 as message count
 df.set_index(pd.to_datetime(df.index.get_level_values(0) ) +
