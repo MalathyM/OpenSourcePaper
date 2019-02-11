@@ -36,3 +36,17 @@ df_2015_hourly['msg_count'].max()
 df_2015_hourly['msg_count'].mean()
 #find standard deviation of msg_count for year 2015
 df_2015_hourly['msg_count'].std()
+
+#find statistics for the year 2016
+df_2016_hourly = df[df.index.year == 2016]
+df_2016_hourly['msg_count'].min()
+df_2016_hourly['msg_count'].max()
+df_2016_hourly['msg_count'].mean()
+df_2016_hourly['msg_count'].std()
+
+#find statistics for the year 2017
+df_2017_hourly = df[df.index.year == 2017]
+df_2017_hourly['msg_count'].min()
+df_2017_hourly['msg_count'].max()
+df_2017_hourly['msg_count'].mean()
+df_2017_hourly['msg_count'].std()
