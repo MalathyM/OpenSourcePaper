@@ -1,7 +1,7 @@
 ##############################################
 #UTF-8 Encoded
 #Created Date - Jan 18th, 2019
-#Author - Raghav Ramky
+# Author - Raghav Ramky
 #Stage_2: Scrapping Details from project Pages
 ##############################################
 
@@ -17,7 +17,7 @@ start = time.time()
 from selenium.webdriver.firefox.options import Options
 options = Options()
 options.headless = True
-driver = webdriver.Firefox(options=options)
+driver = webdriver.Firefox(options = options)
 
 #Stage_2_Global_Variables
 text_array = []

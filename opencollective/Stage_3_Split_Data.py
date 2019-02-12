@@ -1,7 +1,7 @@
 ##########################################################
 #UTF-8 Encoded
 #Created Date - Jan 18th, 2019
-#Author - Raghav Ramky
+# Author - Raghav Ramky
 #Stage_3: Filtering_the_output
 #Convert currency to its
 #Merge the csv files
