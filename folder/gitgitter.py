@@ -4,6 +4,7 @@ import pandas as pd
 import csv
 import xlwt
 import sys
+from tqdm import tqdm
 datagitteruser = pd.read_csv('/Volumes/BootCamp/MohitsDocs/Certification and Projects/VProject/Files/user_name_2017_sampled_5000.csv')
 datagitteruser.head()
 arrdataUserID = datagitteruser['user_name']
@@ -88,7 +89,7 @@ i=0
 try:
     json_files=[json_file for json_file in os.listdir(json_path)if json_file.endswith('.json')]
     #iterating the files using For loop
-    for every_file in json_files:
+    for every_file in tqdm(json_files):
         data=open(json_path+'/'+every_file)
         monthValue=every_file[5:7]+"/1/2017"
         #reading the data and store it to the jsonrecord for the signle file
