@@ -5,10 +5,19 @@ import csv
 import xlwt
 import sys
 from tqdm import tqdm
-datagitteruser = pd.read_csv('/Volumes/BootCamp/MohitsDocs/Certification and Projects/VProject/Files/user_name_2017_sampled_5000.csv')
+import socket
+path_m=''
+json_path=''
+if socket.gethostname()=='isds-research.usf.edu':
+    datagitteruser= pd.read_csv('user_name_2017_sampled_5000.csv')
+    json_path='/home/vivek/github-data_2017/'
+else:
+    datagitteruser = pd.read_csv('/Volumes/BootCamp/MohitsDocs/Certification and Projects/VProject/Files/user_name_2017_sampled_5000.csv')
+    path_m='/Volumes/BootCamp/MohitsDocs/Certification and Projects/VProject/'
+    json_path='/Volumes/BootCamp/MohitsDocs/Certification and Projects/VProject/Files/'
 datagitteruser.head()
 arrdataUserID = datagitteruser['user_name']
-json_path='/Volumes/BootCamp/MohitsDocs/Certification and Projects/VProject/Files/'
+
 eventType=['CheckRunEvent',
 'CheckSuiteEvent',
 'CommitCommentEvent',
@@ -166,7 +175,7 @@ header=['UserID', 'Month','CheckRunEvent',
 
 
 #creating csv using the dictionary values 
-with open('/Volumes/BootCamp/MohitsDocs/Certification and Projects/VProject/githubGittercollection.csv','w',newline='') as csvfile:
+with open(path_m+'githubGittercollection.csv','w',newline='') as csvfile:
     fieldnames = ['UserID', 'Month','CheckRunEvent',
 'CheckSuiteEvent',
 'CommitCommentEvent',
