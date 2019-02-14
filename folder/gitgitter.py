@@ -95,38 +95,39 @@ arr=dict()
 #i is used for the first iteration of the dictionary insert key and value pair
 i=0
 #getting the files list from the given path
-try:
-    json_files=[json_file for json_file in os.listdir(json_path)if json_file.endswith('.json')]
-    #iterating the files using For loop
-    for every_file in tqdm(json_files):
-        data=open(json_path+'/'+every_file)
-        monthValue=every_file[5:7]+"/1/2017"
-        #reading the data and store it to the jsonrecord for the signle file
-        jsonrecords=data.readlines()
-        data.close()
-        #iteration over the data line by line and loading to the json form
-        for line in jsonrecords:
-            jsonstrings=js.loads(line)
-            if(jsonstrings['actor']['login'] in list(arrdataUserID)):
-                #creating the dummy nodes for all the events and checking whether the userID is alread there before creating it
-                userid=jsonstrings['actor']['login']
-                arr=createDummyNode(userid,monthValue,arr,eventType)
-                #first iteration of loop and adding first element directly to dictionary
-                eventName=jsonstrings['type']
-                
-                for key, value in arr.items():
-                    com=userid+"_"+monthValue
-                    if(key==com):
-                    	for ikey, ivalue in value.items():
-                    		if(ikey==eventName):
-                    			ivalue=ivalue+1
-                    			newval=value.copy()
-                    			newval.update({ikey:ivalue})
-                    			break
-                    	arr.update({key:newval})
-                    	val=0
-except Exception as e:
-    print(e)
+
+json_files=[json_file for json_file in os.listdir(json_path)if json_file.endswith('.json')]
+#iterating the files using For loop
+for every_file in tqdm(json_files):
+	data=open(json_path+'/'+every_file)
+	monthValue=every_file[5:7]+"/1/2017"
+	#reading the data and store it to the jsonrecord for the signle file
+	jsonrecords=data.readlines()
+	data.close()
+	#iteration over the data line by line and loading to the json form
+	for line in jsonrecords:
+		try:
+			jsonstrings=js.loads(line)
+			if(jsonstrings['actor']['login'] in list(arrdataUserID)):
+				#creating the dummy nodes for all the events and checking whether the userID is alread there before creating it
+				userid=jsonstrings['actor']['login']
+				arr=createDummyNode(userid,monthValue,arr,eventType)
+				#first iteration of loop and adding first element directly to dictionary
+				eventName=jsonstrings['type']
+				
+				for key, value in arr.items():
+					com=userid+"_"+monthValue
+					if(key==com):
+						for ikey, ivalue in value.items():
+							if(ikey==eventName):
+								ivalue=ivalue+1
+								newval=value.copy()
+								newval.update({ikey:ivalue})
+								break
+						arr.update({key:newval})
+						val=0
+		except Exception as e:
+			print(e)
 
 
 header=['UserID', 'Month','CheckRunEvent',
