@@ -1,7 +1,7 @@
 #######################################################
 #UTF-8 Encoded
 #Created Date - Jan 20th, 2019
-#Author - Raghav Ramky
+# Author - Raghav Ramky
 #Stage_5: Extracting data from Github and Twitter using 
 #		  the output from Stage_3
 #######################################################
@@ -16,7 +16,7 @@ import time
 import csv
 
 start = time.time()
-
+"""
 #Twitter_Module#################################################################
 # Stage_5_Twitter global Variables
 all_profiles = []
@@ -35,16 +35,15 @@ api = tweepy.API(auth)
 #To Read from our CSV File
 with open('Stage_3.csv') as csv_file:
 		csv_reader= csv.reader(csv_file, delimiter=',')
-   		line_count = 0
-    		for row in csv_reader:
-		        if line_count == 0:
-		            line_count += 1
-		        else:
-		        	all_names.append(row[0])
-		            all_profiles.append(row[6])
-		            git_url.append(row[7])
-		            all
-		            line_count += 1
+		line_count = 0
+		for row in csv_reader:
+			if line_count == 0:
+					line_count += 1
+			else:
+					all_names.append(row[0])
+					all_profiles.append(row[6])
+					git_url.append(row[7])
+					line_count += 1
 
 #To write into the output file
 s5_tweet = open('Stage_5_Twitter_Data.csv', 'w')
@@ -155,7 +154,7 @@ driver.quit()
 ##################################################################
 
 time.sleep(10)
-
+"""
 df_main = pd.read_csv("Stage_3.csv")
 df_tweet = pd.read_csv("Stage_5_Twitter_Data.csv")
 df_gitter = pd.read_csv("Stage_5_Gitter_Data.csv")
