@@ -3,8 +3,7 @@ import glob
 import pandas as pd
 import numpy as np
 import datetime as dt
-import matplotlib
-.pyplot as plt
+import matplotlib.pyplot as plt
 import csv
 import datetime
 path = "D:/GitHub/Gitter/Chats/csv"
